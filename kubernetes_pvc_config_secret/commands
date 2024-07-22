@@ -1,0 +1,13 @@
+kubectl apply -f k8s-config.yaml
+kubectl apply -f k8s-secrets.yaml
+kubectl apply -f k8s-db.yaml
+kubectl apply -f k8s-app.yaml
+
+kubectl get pvc
+
+kubectl rollout restart deployment springboot-crud-deployment
+kubectl delete deployment springboot-crud-deployment
+kubectl apply -f k8s-app.yaml
+kubectl get pvc
+
+echo -n 'root' | base64

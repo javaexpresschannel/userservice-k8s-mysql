@@ -1,0 +1,9 @@
+Memory Storage
+Deployment
+Service
+
+kubectl get pvc
+kubectl exec -it podname /bin/bash
+mysql -h mysql -u root -p
+root
+

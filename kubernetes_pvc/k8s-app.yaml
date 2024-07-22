@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-crud-deployment
+spec:
+  selector:
+    matchLabels:
+      app: springboot-k8s-mysql
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: springboot-k8s-mysql
+    spec:
+      containers:
+        - name: springboot-crud-k8s
+          image: 'javaexpress/userservice:mysql'
+          ports:
+            - containerPort: 8085
+          env:   # Setting Enviornmental Variables
+            - name: DB_HOST
+              value: mysql
+            - name: DB_NAME
+              value: testdb
+            - name: DB_USERNAME
+              value: root
+            - name: DB_PASSWORD
+              value: root
+---
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: springboot-crud-svc
+spec:
+  selector:
+    app: springboot-k8s-mysql
+  ports:
+    - protocol: "TCP"
+      port: 8088 # The port that the service is running on in the cluster
+      targetPort: 8085 # The port exposed by the service
+  type: LoadBalancer # type of the service.
