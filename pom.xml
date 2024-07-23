@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.javaexpress</groupId>
-	<artifactId>userservice-kubernetes</artifactId>
+	<artifactId>userservice-k8s-mysql</artifactId>
 	<version>1.0.0</version>
-	<name>userservice-kubernetes</name>
+	<name>userservice-k8s-mysql</name>
 	<description>Demo project for Spring Boot</description>
 	<url />
 	<licenses>

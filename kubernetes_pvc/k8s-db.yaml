@@ -40,7 +40,7 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: root
-            - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
+            - name: MYSQL_DATABASE
               value: testdb
           ports:
             - containerPort: 3306
